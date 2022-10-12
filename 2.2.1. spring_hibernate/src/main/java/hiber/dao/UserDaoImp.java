@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -18,6 +19,7 @@ public class UserDaoImp implements UserDao {
     private SessionFactory sessionFactory;
 
     @Override
+    @Transactional
     public void add(User user) {
         sessionFactory.getCurrentSession().save(user);
     }
